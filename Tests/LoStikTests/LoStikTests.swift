@@ -62,6 +62,7 @@ final class LoStikTests: XCTestCase {
         }
     }
     
+    #if LOSTIK
     func testConnection() {
         
         #if os(Linux)
@@ -93,4 +94,5 @@ final class LoStikTests: XCTestCase {
         }
         catch { XCTFail("Error: \(error)") }
     }
+    #endif
 }

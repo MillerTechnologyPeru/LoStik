@@ -12,7 +12,7 @@ public extension LoStik {
     /// LoRaWAN protocol commands.
     var mac: Mac { return Mac(device: self) }
     
-    public struct Mac {
+    struct Mac {
         
         internal let device: LoStik
         
@@ -29,7 +29,7 @@ public extension LoStik.Mac {
      
      - Note: This command will set default values for most of the LoRaWAN parameters. Everything set prior to this command will lose its set value, being reinitialized to the default value, including setting the cryptographic keys to 0.
      */
-    public func reset() throws {
+    func reset() throws {
         
         try device.send(command: .mac(.reset))
         let response = try device.read()
@@ -41,7 +41,7 @@ public extension LoStik.Mac {
     /**
      The network can issue a certain command (Duty Cycle Request frame with parameter 255) that would require the RN2903 module to go silent immediately. This mechanism disables any further communication of the module, effectively isolating it from the network. Using mac force enable, after this network command has been received, restores the module’s connectivity by allowing it to send data.
      */
-    public func forceEnable() throws {
+    func forceEnable() throws {
         
         try device.send(command: .mac(.forceEnable))
         let response = try device.read()
@@ -58,7 +58,7 @@ public extension LoStik.Mac {
      - Note: If already joined to a network, this command MUST be called BEFORE configuring the radio parameters, initiating radio reception, or transmission.
      */
     @discardableResult
-    public func pause() throws -> UInt {
+    func pause() throws -> UInt {
         
         try device.send(command: .mac(.pause))
         let response = try device.read()
@@ -74,7 +74,7 @@ public extension LoStik.Mac {
      
      - Note: This command MUST be called AFTER all radio commands have been issued and all the corresponding asynchronous messages have been replied.
      */
-    public func resume() throws {
+    func resume() throws {
         
         try device.send(command: .mac(.resume))
         let response = try device.read()
@@ -87,7 +87,7 @@ public extension LoStik.Mac {
 public extension LoStik.Mac {
     
     /// LoRaWAN protocol commands.
-    public enum Command: Equatable, Hashable {
+    enum Command: Equatable, Hashable {
         
         /**
          This command will automatically reset the software LoRaWAN stack and initialize it with the parameters for the selected band.
@@ -126,7 +126,7 @@ public extension LoStik.Mac {
 public extension LoStik.Mac {
     
     /// Uplink payload type
-    public enum UplinkPayloadType: String {
+    enum UplinkPayloadType: String {
         
         case confirmed = "cnf"
         case unconfirmed = "uncnf"
@@ -135,7 +135,7 @@ public extension LoStik.Mac {
 
 public extension LoStik.Mac {
     
-    public struct Port: Equatable, Hashable, RawRepresentable {
+    struct Port: Equatable, Hashable, RawRepresentable {
         
         public let rawValue: UInt8
         
@@ -202,7 +202,7 @@ internal extension LoStik.Mac.Command {
 
 public extension LoStik.Mac.Command {
     
-    public enum CommandType: String {
+    enum CommandType: String {
         
         /// Resets the module and sets default values for most of the LoRaWAN parameters.
         case reset

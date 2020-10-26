@@ -32,7 +32,7 @@ public enum Pin: String {
 
 public extension Pin {
     
-    public enum State: Int {
+    enum State: Int {
         
         case off = 0
         case on = 1
@@ -41,7 +41,7 @@ public extension Pin {
 
 public extension Pin {
     
-    public enum Mode: String {
+    enum Mode: String {
         
         case digitalOut = "digout"
         case digitalIn = "digin"

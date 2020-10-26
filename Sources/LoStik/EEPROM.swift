@@ -31,9 +31,9 @@ public struct EEPROMAddress: RawRepresentable, Equatable, Hashable {
 
 public extension EEPROMAddress {
     
-    public static var min: EEPROMAddress { return EEPROMAddress(0x300) }
+    static var min: EEPROMAddress { return EEPROMAddress(0x300) }
     
-    public static var max: EEPROMAddress { return EEPROMAddress(0x3FF) }
+    static var max: EEPROMAddress { return EEPROMAddress(0x3FF) }
 }
 
 // MARK: - CustomStringConvertible

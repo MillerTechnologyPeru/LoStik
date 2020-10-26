@@ -10,7 +10,7 @@ public extension LoStik {
     /// System view of the LoStik.
     var system: System { return System(device: self) }
     
-    public struct System {
+    struct System {
         
         internal let device: LoStik
         
@@ -206,7 +206,7 @@ public extension LoStik.System {
 
 public extension LoStik.System {
     
-    public enum Command: Equatable, Hashable {
+    enum Command: Equatable, Hashable {
         
         /**
          This command puts the system to Sleep for the specified number of milliseconds. The module can be forced to exit from Sleep by sending a break condition followed by a 0x55 character at the new baud rate.
@@ -272,7 +272,7 @@ internal extension LoStik.System.Command {
 
 public extension LoStik.System.Command {
     
-    public enum Set: Equatable, Hashable {
+    enum Set: Equatable, Hashable {
         
         /**
          This command allows the user to modify the user EEPROM at <address> with the value supplied by <data>. Both <address> and <data> must be entered as hex values. The user EEPROM memory is located inside the MCU on the module.
@@ -328,7 +328,7 @@ internal extension LoStik.System.Command.Set {
 
 public extension LoStik.System.Command {
     
-    public enum Get: Equatable, Hashable {
+    enum Get: Equatable, Hashable {
         
         /// Returns the information on hardware platform, firmware version, release date.
         case version
@@ -388,7 +388,7 @@ internal extension LoStik.System.Command.Get {
 
 public extension LoStik.System.Command {
     
-    public enum CommandType: String {
+    enum CommandType: String {
         
         /// Puts the system in Sleep for a finite number of milliseconds.
         case sleep
@@ -413,7 +413,7 @@ public extension LoStik.System.Command {
 
 public extension LoStik.System.Command.Set {
     
-    public enum CommandType: String {
+    enum CommandType: String {
         
         /// Stores <data> to a location <address> of user EEPROM.
         case rom = "nvm"
@@ -428,7 +428,7 @@ public extension LoStik.System.Command.Set {
 
 public extension LoStik.System.Command.Get {
     
-    public enum CommandType: String {
+    enum CommandType: String {
         
         /**
          This command returns the information related to the hardware platform, firmware version, release date and time-stamp on firmware creation.

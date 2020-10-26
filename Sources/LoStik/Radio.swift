@@ -12,7 +12,7 @@ public extension LoStik {
     /// LoRaWAN protocol commands.
     var radio: Radio { return Radio(device: self) }
     
-    public struct Radio {
+    struct Radio {
         
         internal let device: LoStik
         
@@ -102,7 +102,7 @@ public extension LoStik.Radio {
 
 public extension LoStik.Radio {
     
-    public enum Command: Equatable, Hashable {
+    enum Command: Equatable, Hashable {
         
         /// This command configures the radio to receive simple radio packets according to prior configuration settings
         case receive(UInt16)
@@ -138,7 +138,7 @@ internal extension LoStik.Radio.Command {
 
 public extension LoStik.Radio.Command {
     
-    public enum CommandType: String {
+    enum CommandType: String {
         
         /// This command configures the radio to receive simple radio packets according to prior configuration settings
         case receive = "rx"
