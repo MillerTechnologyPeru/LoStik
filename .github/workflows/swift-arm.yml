@@ -2,7 +2,7 @@ name: Swift ARM
 
 on:
   push:
-    branches: [ master ]
+    branches: [ swift ]
 
 jobs:
 

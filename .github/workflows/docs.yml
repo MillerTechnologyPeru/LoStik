@@ -3,6 +3,8 @@ name: Documentation
 on:
   workflow_dispatch:
   release:
+  push:
+    branches: [ swift ]
 
 jobs:
 # Create documentation
